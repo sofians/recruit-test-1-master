@@ -1,4 +1,4 @@
-
+import db from '../models/index.js'
 import { Content } from '../models/content.js'
 
 // Get
@@ -25,6 +25,15 @@ async function getDummyData() {
  * https://jsonplaceholder.typicode.com/todos/1
  * This method should only return title and completed
  */
-async function getWebContent() {
-    throw new Error('not implemented yet')
+
+export const getWebContent = async (req, res) => {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => {
+            const { title, completed } = json;
+            res.send({ title, completed })
+        })
+        .catch(function (err) {
+            console.log("Unable to fetch -", err);
+        });
 }
