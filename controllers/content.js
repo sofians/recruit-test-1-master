@@ -12,7 +12,7 @@ export const getContent = async (req, res) => {
  * This function seems useless but is useful for this company
  * don't forget why your are reading this code
  */
-async function getDummyData() {
+export async function getDummyData() {
     const data = ['data_one', 'data_two']
     data.forEach(d => {
         db.set(d)
